@@ -8,12 +8,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 from scipy.optimize import curve_fit
-from formulea import build_formula
+from formulas.formulea import build_formula_simple
+from formulas.formulador import build_formula_mu
 from wolframclient.evaluation import WolframLanguageSession
 from wolframclient.language import wl, wlexpr
 session = WolframLanguageSession()
 pyresolve = session.function(wl.Resolve)
 
+#verify the definition for each function to understand the sense of their variables. 
+version_mu = False
+
+if version_mu==True:
+    build_formula = build_formula_mu()
+else:
+    build formula = build_formula_simple()
+        
 tiempo=[]
 for i in range(12):
     for j in range(18):
